@@ -1,0 +1,10 @@
+node_modules
+.temp
+.DS_Store
+.vscode
+.idea
+packages/**/dist/
+packages/**/lib/
+dist/
+coverage
+
