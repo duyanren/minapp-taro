@@ -1,7 +1,7 @@
 {
-  "name": "@via/miniapp-ui",
+  "name": "@duyanren/miniapp-ui",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "description": "小程序组件库",
   "browser": "dist/index.umd.js",
   "module": "dist/index.esm.js",
@@ -15,6 +15,10 @@
     "types",
     "README.md"
   ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.com/"
+  },
   "scripts": {
     "dev:lib": "tsc --project ./tsconfig.build.json --watch --incremental",
     "dev:rollup": "rollup --config ./rollup.config.js -w",
@@ -29,7 +33,7 @@
     "Android >= 4.1",
     "ios >= 8"
   ],
-  "author": "",
+  "author": "duyanren",
   "peerDependencies": {
     "@babel/runtime": "^7.7.7",
     "@tarojs/components": "3.5.6",

@@ -7,16 +7,14 @@
       "packages/*"
     ]
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.com/"
+  },
   "scripts": {
     "start": "pnpm install --shamefully-hoist",
-    "dev": "concurrently \"pnpm --filter=ossaui dev:rollup\" \"pnpm --filter=@ossa/loki dev:rollup\" \"pnpm dev:demo\"",
-    "dev:demo": "pnpm --filter=ossa-demo dev:h5",
-    "doc:start": "pnpm --filter=ossa-doc start",
-    "build:demo": "pnpm --filter=ossa-demo build:h5 --public_path=$npm_config_path",
-    "build:demo:vercel": "pnpm --filter=ossa-demo build:h5:vercel",
-    "build": "pnpm build:ossa && pnpm build:loki",
-    "build:ossa": "pnpm --filter=ossaui build",
-    "build:loki": "pnpm --filter=@ossa/loki build",
+    "build": "pnpm build:ui",
+    "build:ui": "pnpm --filter=@duyanren/miniapp-ui build",
     "clear": "rimraf 'packages/*/{lib,node_modules}' && rimraf node_modules",
     "changeset": "changeset",
     "version-packages": "changeset version && pnpm start",
@@ -24,8 +22,6 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "release": "pnpm build && pnpm release:only",
     "release:only": "changeset publish --registry=https://registry.npmjs.com/",
-    "test": "pnpm --filter=ossa-demo test",
-    "checkUIChange": "node ./scripts/checkModifyListAndTest.js",
     "lint-staged": "lint-staged",
     "prepare": "node prepare-husky.mjs",
     "prepare-husky-win": "husky install",
@@ -36,8 +32,7 @@
       "eslint"
     ]
   },
-  "author": "",
-  "private": true,
+  "author": "duyanren",
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.5",
     "@changesets/cli": "^2.23.0",
@@ -78,5 +73,8 @@
   },
   "dependencies": {
     "async": "^3.2.4"
+  },
+  "engines": {
+    "node": "16.18.1"
   }
 }
