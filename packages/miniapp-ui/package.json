@@ -1,6 +1,6 @@
 {
   "name": "@duyanren/miniapp-ui",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "private": false,
   "description": "小程序组件库",
   "browser": "dist/index.umd.js",
@@ -22,7 +22,7 @@
   "scripts": {
     "dev:lib": "tsc --project ./tsconfig.build.json --watch --incremental",
     "dev:rollup": "rollup --config ./rollup.config.js -w",
-    "build": "npm run clean && yarn build:rollup && yarn build:lib",
+    "build": "npm run clean && npm run build:rollup && npm run build:lib",
     "build:lib": "tsc --project ./tsconfig.build.json --declaration",
     "build:rollup": "rollup --config ./rollup.config.js",
     "prepublishOnly": "npm run clean && npm run build",
