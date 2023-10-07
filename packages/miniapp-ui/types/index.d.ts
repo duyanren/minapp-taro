@@ -1,5 +1,5 @@
 export {
   CountdownProps as OsCountdownProps,
-  Countdown,
+  CountDown,
   FormattedResType as OsFormattedResType,
-} from './countdown';
+} from './CountDown';

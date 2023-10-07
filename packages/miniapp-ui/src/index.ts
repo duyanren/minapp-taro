@@ -1,1 +1,1 @@
-export { default as Countdown } from './components/countdown/index';
+export { default as CountDown } from './components/CountDown/index';

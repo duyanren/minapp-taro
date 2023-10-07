@@ -14,3 +14,16 @@ pnpm version-packages
 // 发布
 pnpm release
 ```
+
+## pnpm使用
+
+```javascript
+// 全局安装 -w: --workspace-root
+pnpm add typescript -D -w
+
+// 局部安装
+pnpm add typescript -D --filter pkg-a
+
+// 互相安装
+pnpm add pkg-a -D --workspace --filter pkg-b
+```
