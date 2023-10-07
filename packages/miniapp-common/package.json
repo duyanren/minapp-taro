@@ -1,6 +1,6 @@
 {
   "name": "@duyanren/miniapp-common",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": false,
   "description": "小程序工具库",
   "browser": "dist/index.umd.js",
@@ -14,6 +14,9 @@
     "dist",
     "types",
     "README.md"
+  ],
+  "keywords": [
+    "taro"
   ],
   "publishConfig": {
     "access": "public",

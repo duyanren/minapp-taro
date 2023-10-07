@@ -7,4 +7,5 @@ packages/**/dist/
 packages/**/lib/
 dist/
 coverage
+@types/
 

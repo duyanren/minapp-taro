@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "workspaces": {
@@ -11,10 +11,14 @@
     "access": "public",
     "registry": "https://registry.npmjs.com/"
   },
+  "private": true,
   "scripts": {
     "start": "pnpm install --shamefully-hoist",
-    "build": "pnpm build:ui",
-    "build:ui": "pnpm --filter=@duyanren/miniapp-ui build",
+    "build": "pnpm build:ui && pnpm build:lib",
+    "build:ui": "pnpm build:component",
+    "build:component": "pnpm --filter=@duyanren/miniapp-ui build",
+    "build:lib": "pnpm build:common",
+    "build:common": "pnpm --filter=@duyanren/miniapp-common build",
     "clear": "rimraf 'packages/*/{lib,node_modules}' && rimraf node_modules",
     "changeset": "changeset",
     "version-packages": "changeset version && pnpm start",
@@ -34,12 +38,16 @@
   },
   "author": "duyanren",
   "devDependencies": {
+    "@babel/core": "^7.11.0",
     "@changesets/changelog-github": "^0.4.5",
     "@changesets/cli": "^2.23.0",
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
     "@typescript-eslint/eslint-plugin": "^5.29.0",
     "@typescript-eslint/parser": "^5.29.0",
     "chalk": "^4.0.1",
+    "commitizen": "^4.3.0",
     "concurrently": "^7.5.0",
     "connect": "^3.7.0",
     "conventional-changelog-cli": "^2.2.2",
@@ -54,15 +62,15 @@
     "glob": "^8.0.3",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
+    "postcss": "^8.2.15",
     "prettier": "^3.0.3",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
+    "react-refresh": ">=0.10.0 <1.0.0",
     "serve-static": "^1.15.0",
     "shelljs": "^0.8.5",
     "typescript": "^3.9.5",
-    "@commitlint/cli": "^17.7.1",
-    "@commitlint/config-conventional": "^17.7.0",
-    "commitizen": "^4.3.0"
+    "webpack": "^4.46.0"
   },
   "pnpm": {
     "overrides": {
@@ -76,5 +84,11 @@
   },
   "engines": {
     "node": "16.18.1"
+  },
+  "peerDependencies": {
+    "@babel/core": "^7.11.0",
+    "postcss": "^8.2.15",
+    "react-refresh": ">=0.10.0 <1.0.0",
+    "webpack": "^4.46.0"
   }
 }
