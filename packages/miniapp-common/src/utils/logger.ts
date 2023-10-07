@@ -1,17 +1,26 @@
-import { getRealtimeLogManager } from '@tarojs/taro';
+import Taro from '@tarojs/taro';
 
-const log = getRealtimeLogManager ? getRealtimeLogManager() : null;
-console.log('%c [ log ]-4', 'font-size:13px; background:pink; color:#bf2c9f;', log)
+const log = Taro?.getRealtimeLogManager ? Taro?.getRealtimeLogManager() : null;
+
 class Logger {
   info(...args) {
+    console.info('===========> console.info', args);
     if (!log) return;
     log.info.apply(log, args);
   }
   warn(...args) {
+    console.warn('===========> console.warn', args);
     if (!log) return;
     log.warn.apply(log, args);
   }
+  debug(...args) {
+    console.debug('===========> console.debug', args);
+    if (!log) return;
+    // @ts-ignore
+    log.debug.apply(log, args);
+  }
   error(...args) {
+    console.error('===========> console.error', args);
     if (!log) return;
     log.error.apply(log, args);
   }
